@@ -2,31 +2,37 @@ package Figures;
 
 public class Main {
     public static void main(String[] args) {
-        int numOfObjects = (int) (getRandom());
+        int numOfObjects = (int) (getRandomSize());
         for (int i = 1; i <= numOfObjects; i++) {
             Figure figure;
             int chooseFigure = (int) (Math.random() * 5);
             switch (chooseFigure) {
                 case 1: {
-                    figure = new Circle(getRandomColor(), getRandom());
+                    figure = new Circle(getRandomColor(), getRandomSize());
                     figure.draw();
                     break;
                 }
                 case 2: {
-                    figure = new Square(getRandomColor(), getRandom());
+                    figure = new Square(getRandomColor(), getRandomSize());
                     figure.draw();
                     break;
                 }
                 case 3: {
-                    double smallestSize = getRandom();
-                    double biggestSize = smallestSize + getRandom();
-                    figure = new Trapeze(getRandomColor(), biggestSize, smallestSize, getRandom());
+                    double smallestSize = getRandomSize();
+                    double biggestSize = smallestSize + getRandomSize();
+                    Trapeze.TrapezeBuilder trapezeBuilder = new Trapeze.TrapezeBuilder();
+                    figure = trapezeBuilder
+                            .setBiggestBase(biggestSize)
+                            .setColor(getRandomColor())
+                            .setHeight(getRandomSize())
+                            .setSmallestBase(smallestSize)
+                            .build();
                     figure.draw();
                     break;
                 }
                 case 4: {
-                    double aSide = getRandom();
-                    double bSide = getRandom();
+                    double aSide = getRandomSize();
+                    double bSide = getRandomSize();
                     double cSide = Math.random() * aSide + bSide;
                     figure = new Triangle(getRandomColor(), aSide, bSide, cSide);
                     figure.draw();
@@ -35,7 +41,7 @@ public class Main {
         }
     }
 
-    public static double getRandom() {
+    public static double getRandomSize() {
         return Math.random() * 100;
     }
 

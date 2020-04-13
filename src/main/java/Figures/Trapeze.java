@@ -6,11 +6,11 @@ public class Trapeze extends Figure {
     private double smallestBase;
     private double height;
 
-    public Trapeze(String color, double biggestBase, double smallestBase, double height) {
-        this.color = color;
-        this.biggestBase = biggestBase;
-        this.smallestBase = smallestBase;
-        this.height = height;
+    private Trapeze(TrapezeBuilder trapezeBuilder) {
+        this.color = trapezeBuilder.color;
+        this.biggestBase = trapezeBuilder.biggestBase;
+        this.smallestBase = trapezeBuilder.smallestBase;
+        this.height = trapezeBuilder.height;
     }
 
     @Override
@@ -33,4 +33,36 @@ public class Trapeze extends Figure {
     public String getColor() {
         return color;
     }
+
+    public static class TrapezeBuilder {
+        private String color;
+        private double smallestBase;
+        private double biggestBase;
+        private double height;
+
+        public TrapezeBuilder setColor(String color) {
+            this.color = color;
+            return this;
+        }
+
+        public TrapezeBuilder setSmallestBase(double smallestBase) {
+            this.smallestBase = smallestBase;
+            return this;
+        }
+
+        public TrapezeBuilder setBiggestBase(double biggestBase) {
+            this.biggestBase = biggestBase;
+            return this;
+        }
+
+        public TrapezeBuilder setHeight(double height) {
+            this.height = height;
+            return this;
+        }
+
+        public Trapeze build() {
+            return new Trapeze(this);
+        }
+    }
+
 }
