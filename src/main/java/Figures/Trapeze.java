@@ -15,7 +15,10 @@ public class Trapeze extends Figure {
 
     @Override
     public void draw() {
-        System.out.println("java.figures.Trapeze");
+        System.out.println("Figure: trapeze, "
+                + "color: " + getColor()
+                + ", height: " + getHeight()
+                + ", area: " + getArea());
     }
 
     @Override
@@ -30,12 +33,4 @@ public class Trapeze extends Figure {
     public String getColor() {
         return color;
     }
-    @Override
-    public String toString() {
-        return "Figure: trapeze, "
-                + "color: " + getColor()
-                + ", height: " + getHeight()
-                + ", area: " + getArea();
-    }
-
 }

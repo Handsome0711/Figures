@@ -1,6 +1,6 @@
 package Figures;
 
-public class Triangle extends Figure{
+public class Triangle extends Figure {
     private String color;
     private double aSide;
     private double bSide;
@@ -15,13 +15,16 @@ public class Triangle extends Figure{
 
     @Override
     public void draw() {
-        System.out.println("java.figures.Triangle");
+        System.out.println("Figure: triangle, "
+                + "color: " + getColor()
+                + ", biggest side: " + getBiggestSide()
+                + ", area: " + getArea());
     }
 
     @Override
     public double getArea() {
         double p = (aSide + bSide + cSide) / 2;
-        return Math.sqrt(p * (p - aSide) * (p - bSide) * (p-cSide));
+        return Math.sqrt(p * (p - aSide) * (p - bSide) * (p - cSide));
     }
 
     public double getBiggestSide() {
@@ -30,13 +33,5 @@ public class Triangle extends Figure{
 
     public String getColor() {
         return color;
-    }
-
-    @Override
-    public String toString() {
-        return "Figure: triangle, "
-                + "color: " + getColor()
-                + ", biggest side: " + getBiggestSide()
-                + ", area: " + getArea();
     }
 }

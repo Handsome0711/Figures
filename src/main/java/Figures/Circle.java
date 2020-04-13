@@ -11,7 +11,10 @@ public class Circle extends Figure {
 
     @Override
     public void draw() {
-        System.out.println(color + "square with is drawn!");
+        System.out.println("Figure: circle, "
+                + "color: " + getColor()
+                + ", radius: " + getRadius()
+                + ", area: " + getArea());
     }
 
     @Override
@@ -25,13 +28,5 @@ public class Circle extends Figure {
 
     public String getColor() {
         return color;
-    }
-
-    @Override
-    public String toString() {
-        return "Figure: circle, "
-                + "color: " + getColor()
-                + ", radius: " + getRadius()
-                + ", area: " + getArea();
     }
 }
